@@ -1,4 +1,3 @@
-using Mono.Cecil.Cil;
 using UnityEngine;
 
 public class DamageAccept : MonoBehaviour
@@ -9,5 +8,9 @@ public class DamageAccept : MonoBehaviour
     public void DeathStart()
     {
         enemyAnim.Death(paramName);
+        if (ScoreController.Instance != null)
+        {
+            ScoreController.Instance.DeathScorePlus();
+        }
     }
 }

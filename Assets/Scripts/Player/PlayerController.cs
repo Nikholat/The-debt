@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             arms.transform.localPosition = new Vector2(0.057f, -0.41f);
 
-            head.transform.localPosition = new Vector2(0.189f, -0.041f);
+            head.transform.localPosition = new Vector2(0.189f, -0.07f); //-0.041f
 
             playerCollider.size = new Vector2(playerCollider.size.x, 1.070439f);
 
@@ -139,7 +139,6 @@ public class PlayerController : MonoBehaviour
             
         }
         anim.Jumping(isGrounded);
-        Debug.Log(isGrounded);
         Debug.DrawRay(transform.position, Vector2.down * _distanceFromGround, Color.red, 1000);
     }
 }

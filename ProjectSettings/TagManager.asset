@@ -10,6 +10,8 @@ TagManager:
   - Torso
   - Legs
   - Bullet
+  - Ammo
+  - Road
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
-  - 
+  - Player
+  - AmmoGun
+  - TakeCollider
   - 
   - 
   - 
@@ -46,6 +48,39 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 1Sky
+    uniqueID: 946481565
+    locked: 0
+  - name: 2Smoke
+    uniqueID: 1546577915
+    locked: 0
+  - name: 3TreesForward
+    uniqueID: 3231780235
+    locked: 0
+  - name: 4Dirt
+    uniqueID: 1772218479
+    locked: 0
+  - name: 5TranchStuff
+    uniqueID: 3472580805
+    locked: 0
+  - name: 6PropsNDeads
+    uniqueID: 1087166175
+    locked: 0
+  - name: Enemy
+    uniqueID: 3661165473
+    locked: 0
+  - name: Player
+    uniqueID: 1545075321
+    locked: 0
+  - name: 7Floor
+    uniqueID: 3624423207
+    locked: 0
+  - name: 8DarkFloor
+    uniqueID: 517276061
+    locked: 0
+  - name: 9TreesBehind
+    uniqueID: 2538527173
     locked: 0
   m_RenderingLayers:
   - Default

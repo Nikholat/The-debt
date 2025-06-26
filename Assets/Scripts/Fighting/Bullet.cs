@@ -9,12 +9,16 @@ public class Bullet : MonoBehaviour
     [SerializeField] private GameObject _destroyEffect;
     [SerializeField] private GameObject _bloodSplash;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private Rigidbody2D rb;
 
-    void Update()
+    void Start()
     {
         Destroy(gameObject, 2);
+    }
 
-        transform.Translate(Vector2.right * _speed * Time.deltaTime);
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + (Vector2)(transform.right * _speed * Time.fixedDeltaTime));
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -22,13 +26,8 @@ public class Bullet : MonoBehaviour
         if (collision.TryGetComponent<DamageAccept>(out var damageAccept))
         {
             damageAccept.DeathStart();
-            Destroy(gameObject);
-            Debug.Log("Dead");
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     void DestroyBullet()

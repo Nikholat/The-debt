@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -8,6 +9,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform _point;
     [SerializeField] private Transform flintlock;
     [SerializeField] private GameObject _bullet;
+    [SerializeField] private GunAnimation gunAnim;
+
+    [Header("UI Bullets Control")]
+    [SerializeField] private GameObject[] _bullets;
+    [SerializeField] private Sprite shotedBullet;
+    [SerializeField] private Sprite newBullet;
+
     [Header("Parameters")]
     [SerializeField] private float _offset;
     [SerializeField] private float _startTime;
@@ -19,6 +27,8 @@ public class Weapon : MonoBehaviour
         Rotates();
 
         Shoot();
+
+        SwapBulletsSystem();
     }
 
     private void Shoot()
@@ -27,6 +37,7 @@ public class Weapon : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && _ammo > 0)
             {
+                gunAnim.ShootAnim();
                 Instantiate(_bullet, _point.position, transform.rotation);
                 _time = _startTime;
                 _ammo--;
@@ -61,5 +72,58 @@ public class Weapon : MonoBehaviour
             flintlock.localScale = new Vector3(0.05554573f, -0.05554573f, 0.05554573f);
             head.flipX = true;
         }
+    }
+
+    private void SwapBulletsSystem()
+    {
+        if (_ammo <= 0)
+        {
+            _bullets[4].GetComponent<Image>().sprite = shotedBullet;
+        }
+        else
+        {
+            _bullets[4].GetComponent<Image>().sprite = newBullet;
+        }
+
+        if (_ammo <= 1)
+        {
+            _bullets[3].GetComponent<Image>().sprite = shotedBullet;
+        }
+        else
+        {
+            _bullets[3].GetComponent<Image>().sprite = newBullet;
+        }
+
+        if (_ammo <= 2)
+        {
+            _bullets[2].GetComponent<Image>().sprite = shotedBullet;
+        }
+        else
+        {
+            _bullets[2].GetComponent<Image>().sprite = newBullet;
+        }
+
+        if (_ammo <= 3)
+        {
+            _bullets[1].GetComponent<Image>().sprite = shotedBullet;
+        }
+        else
+        {
+            _bullets[1].GetComponent<Image>().sprite = newBullet;
+        }
+
+        if (_ammo <= 4)
+        {
+            _bullets[0].GetComponent<Image>().sprite = shotedBullet;
+        }
+        else
+        {
+            _bullets[0].GetComponent<Image>().sprite = newBullet;
+        }
+    }
+
+    public void AmmoGive()
+    {
+        _ammo += 1;
     }
 }
