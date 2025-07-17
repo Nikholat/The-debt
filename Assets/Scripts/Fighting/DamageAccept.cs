@@ -4,13 +4,16 @@ public class DamageAccept : MonoBehaviour
 {
     [SerializeField] private EnemyAnimatorController enemyAnim;
     [SerializeField] private string paramName;
+    private ScoreController scoreController;
+
+    void Awake()
+    {
+        scoreController = FindAnyObjectByType<ScoreController>();
+    }
 
     public void DeathStart()
     {
         enemyAnim.Death(paramName);
-        if (ScoreController.Instance != null)
-        {
-            ScoreController.Instance.DeathScorePlus();
-        }
+        scoreController.DeathScorePlus();
     }
 }

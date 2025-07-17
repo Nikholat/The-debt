@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Mono.Cecil.Cil;
 using Unity.Mathematics;
 
 
@@ -12,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Transform arms;
     [SerializeField] Transform head;
+    private PlayerTriggerSounds playerTriggerSounds;
     private CapsuleCollider2D playerCollider;
 
     [Header("Parameters")]
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerCollider = GetComponent<CapsuleCollider2D>();
+        playerTriggerSounds = GetComponent<PlayerTriggerSounds>();
     }
 
     void Update()
@@ -63,9 +64,9 @@ public class PlayerController : MonoBehaviour
 
             head.transform.localPosition = new Vector2(0.189f, -0.07f); //-0.041f
 
-            playerCollider.size = new Vector2(playerCollider.size.x, 1.070439f);
+            playerCollider.size = new Vector2(0.75f, 0.75f);
 
-            playerCollider.offset = new Vector2(playerCollider.offset.x, -0.478213f);
+            playerCollider.offset = new Vector2(-0.006623864f, -0.5366564f);
 
             anim.Crouch();
 
@@ -81,9 +82,9 @@ public class PlayerController : MonoBehaviour
 
             head.transform.localPosition = new Vector2(-0.026f, 0.377f);
 
-            playerCollider.size = new Vector2(playerCollider.size.x, 1.917832f);
+            playerCollider.size = new Vector2(0.75f, 1.816917f);
 
-            playerCollider.offset = new Vector2(playerCollider.offset.x, -0.05451626f);
+            playerCollider.offset = new Vector2(-0.006623864f, -0.08742809f);
 
             anim.CrouchOff();
 
@@ -128,15 +129,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            playerTriggerSounds.JumpSoundOn();
             rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             anim.Jumping(isGrounded);
         }
         if (!wasGrounded && isGrounded)
         {
-
             isGrounded = true;
-            
+            playerTriggerSounds.LandSoundOn();
         }
         anim.Jumping(isGrounded);
         Debug.DrawRay(transform.position, Vector2.down * _distanceFromGround, Color.red, 1000);

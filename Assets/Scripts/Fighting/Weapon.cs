@@ -125,5 +125,7 @@ public class Weapon : MonoBehaviour
     public void AmmoGive()
     {
         _ammo += 1;
+        if (_ammo >= 5)
+            _ammo = 5;
     }
 }

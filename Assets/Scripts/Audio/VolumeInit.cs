@@ -8,7 +8,7 @@ public class VolumeInit : MonoBehaviour
 
     void Start()
     {
-        var volumeValue = PlayerPrefs.GetFloat(volumeParameter, volumeParameter == "PianoVol" ? 0f : -80f);
+        var volumeValue = PlayerPrefs.GetFloat(volumeParameter, volumeParameter == "SoundsVol" ? 0f : -80f);
         mixer.SetFloat(volumeParameter, volumeValue);
     }
 }

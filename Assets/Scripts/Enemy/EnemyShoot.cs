@@ -8,6 +8,7 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Transform head;
     [SerializeField] private Transform colliders;
     [SerializeField] private EnemyAnimatorController enemyAnims;
+    [SerializeField] private PlayerTriggerSounds playerTriggerSounds;
     [SerializeField] private GunAnimation gunAnim;
     [SerializeField] float maxReloadTime;
     [SerializeField] float rayDistance;
@@ -58,6 +59,8 @@ public class EnemyShoot : MonoBehaviour
         {
             if (hit.transform != null && hit.transform.CompareTag("Player"))
             {
+                playerTriggerSounds.ShootSound();
+
                 Instantiate(bulletPrefab, gunPoint.position, bulletPrefab.transform.rotation);
                 gunAnim.ShootAnim();
 

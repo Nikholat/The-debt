@@ -269,7 +269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 8945290533276374880}
-  scoreController: {fileID: 0}
   paramName: isHeadDeath
 --- !u!1 &3110852477320606383
 GameObject:
@@ -574,7 +573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 8945290533276374880}
-  scoreController: {fileID: 0}
   paramName: isLegsDeath
 --- !u!1 &7229161307453138439
 GameObject:
@@ -795,7 +793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 8945290533276374880}
-  scoreController: {fileID: 0}
   paramName: isTorsoDeath
 --- !u!1 &8065006210522639152
 GameObject:
@@ -811,6 +808,7 @@ GameObject:
   - component: {fileID: 8945290533276374880}
   - component: {fileID: 6442611501274525680}
   - component: {fileID: 8924695802587224768}
+  - component: {fileID: 3454194502646916345}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -960,6 +958,20 @@ MonoBehaviour:
   head: {fileID: 8594680746447102399}
   colliders: {fileID: 6197412565431416540}
   enemyAnims: {fileID: 8945290533276374880}
+  playerTriggerSounds: {fileID: 3454194502646916345}
   gunAnim: {fileID: 4672175575543567977}
   maxReloadTime: 2
-  rayDistance: 5
+  rayDistance: 8
+--- !u!114 &3454194502646916345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065006210522639152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71df21ac056dd42459920fb667ff7818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listPlayTrigger: {fileID: 0}

@@ -29,4 +29,10 @@ public class LoadingManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit");
+    }
 }

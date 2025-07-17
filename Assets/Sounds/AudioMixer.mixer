@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Piano
+  m_Name: MusicVolume
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 1959664d18818944c8239158b7ed9aee
   m_Children: []
@@ -36,9 +36,9 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 9e89a19b467a35245a8ea9c57809d861
-    name: ForestVol
+    name: SoundsVol
   - guid: 71c927d28f3c69846b9a3ad4cd55c6e9
-    name: PianoVol
+    name: MusicVol
   m_AudioMixerGroupViews:
   - guids:
     - a6fea566fc176f646a8f57c912c11e72
@@ -93,7 +93,9 @@ AudioMixerSnapshotController:
   m_SnapshotID: 60da1a0b41d7d564183ae59a381c7d6a
   m_FloatValues:
     71c927d28f3c69846b9a3ad4cd55c6e9: -0.27209902
+    a923daf84f20d884e8ad34ebc44a61b3: 1
     9e89a19b467a35245a8ea9c57809d861: -0.27209902
+    fc45ba6c11f13ea4b877387957e02474: 0
   m_TransitionOverrides: {}
 --- !u!244 &3669245810905749523
 AudioMixerEffectController:
@@ -129,7 +131,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Forest
+  m_Name: SoundVolume
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: bc88adab7496fa64fb93b550ee8535f7
   m_Children: []

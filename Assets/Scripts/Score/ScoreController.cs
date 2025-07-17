@@ -5,20 +5,8 @@ using UnityEngine.UI;
 public class ScoreController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI deathCount;
+    [SerializeField] private TextMeshProUGUI deathCountOnUI;
     private int deathScore;
-    public static ScoreController Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
 
     void Update()
     {
@@ -29,5 +17,10 @@ public class ScoreController : MonoBehaviour
     {
         deathScore += 1;
         deathCount.text = deathScore.ToString();
+    }
+
+    public void UpdateDeathScore()
+    {
+        deathCountOnUI.text = deathScore.ToString();
     }
 }
